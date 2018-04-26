@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+ 
+{% block mainbody %}
+    <p>继承了 base.html 文件</p>
+{% endblock %}
+
+{# 继承了base.html ,以下代码因不属于重写的 mainboby代码块 而失效 #}
+<h1>{{ keyword1 }}</h1>
+<h2>{{ k2 }}</h2>
+
+
+{% if keyword1 and k3 %}
+    <h2>{{ k3 }}</h2>
+{% else %}
+    <h2>{{ k2 }}</h2>
+{% endif %}
+
+
+
+{% ifequal k2 k3 %}
+    <h1>Welcome!</h1>
+{% endifequal %}
