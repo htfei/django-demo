@@ -14,12 +14,21 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from . import view
+from . import view,testdb,test_form  # 注意需要在此处导入视图类（view）
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    #url(r'^admin/', admin.site.urls),
     url(r'^$', view.hello),
+
     url(r'^hello$', view.hello),
+
+    url(r'^testdb$', testdb.testdb),
+
+    url(r'^testForm$', test_form.testForm),
+    url(r'^search$', test_form.search),
+
+    url(r'^search-post$', test_form.search_post),
 ]
 
 '''

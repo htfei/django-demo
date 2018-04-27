@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test Form </title>
+</head>
+<body>
+    {# 点击搜索后，调用search视图并渲染界面 #}
+    {# 绑定的为get方法， 请求URL： http://127.0.0.1:8000/search?q=y （y为你的输入）#}
+    <form action="/search" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="搜索">
+    </form>
+
+    {# {% csrf_token %} 这句用来防止伪装提交请求 #}
+    <form action="/search-post" method="post">
+        {% csrf_token %} 
+        <input type="text" name="q2">
+        <input type="submit" value="Submit">
+    </form>
+ 
+    <p>{{ rlt }}</p>
+</body>
+</html>
